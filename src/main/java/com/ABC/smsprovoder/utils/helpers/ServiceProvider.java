@@ -12,20 +12,26 @@ public class ServiceProvider {
 
          if (mobileNumber.matches(".*[^0-9].*")) {
              throw new Exception("String contains non-digit characters.");
-         }
+         }else {
 
-         String digits = mobileNumber.replaceAll("\\s","").substring(0, 3);
+             String digits = mobileNumber.replaceAll("\\s", "").substring(0, 3);
 
-         if (Arrays.asList(MobilePrefixes.DIALOG_PREFIXES).contains(digits)) {
-             return ServiceProviders.DIALOG;
+             if(digits.length() == 10){
+                 if (Arrays.asList(MobilePrefixes.DIALOG_PREFIXES).contains(digits)) {
+                     return ServiceProviders.DIALOG;
+                 }
+                 return switch (digits) {
+                     case MobilePrefixes.MOBITEL_PREFIX -> ServiceProviders.MOBITEL;
+                     case MobilePrefixes.HUTCH_PREFIX -> ServiceProviders.HUTCH;
+                     case MobilePrefixes.AIRTEL_PREFIX -> ServiceProviders.AIRTEL;
+                     case MobilePrefixes.ATISELART_PREFIX -> ServiceProviders.ATISELART;
+                     default -> throw new Exception("Tel number not in valid format. Number should start with 076, 077, etc.");
+                 };
+             }else {
+                 throw new Exception("Length must be 10 characters");
+             }
+
          }
-         return switch (digits) {
-             case MobilePrefixes.MOBITEL_PREFIX -> ServiceProviders.MOBITEL;
-             case MobilePrefixes.HUTCH_PREFIX -> ServiceProviders.HUTCH;
-             case MobilePrefixes.AIRTEL_PREFIX -> ServiceProviders.AIRTEL;
-             case MobilePrefixes.ATISELART_PREFIX -> ServiceProviders.ATISELART;
-             default -> throw new Exception("Tel number not in valid format. Number should start with 076, 077, etc.");
-         };
      }
 
 
