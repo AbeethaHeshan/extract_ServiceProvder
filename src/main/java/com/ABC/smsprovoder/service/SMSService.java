@@ -10,7 +10,7 @@ public class SMSService {
        public MessageDTO.Response getServiceProvider(MessageDTO messageDTO) throws Exception {
 
            return new MessageDTO.Response(messageDTO.getMessage(),
-                   ServiceProvider.getServiceProviderForMobile(messageDTO.getMobileNumber()).name(),
+                   ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getMobileNumber()).name(),
                    messageDTO.getMobileNumber());
        }
 }
