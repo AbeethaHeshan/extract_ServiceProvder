@@ -10,7 +10,12 @@ public class ServiceProvider {
      public static Enum<ServiceProviders> getServiceProviderForMobilePrefix(String mobileNumber) throws Exception {
              // for 077 , 076 , 078 , 072 , 074 , 071 , 077 , 072
 
+         if (mobileNumber.matches(".*[^0-9].*")) {
+             throw new Exception("String contains non-digit characters.");
+         }
+
          String digits = mobileNumber.replaceAll("\\s","").substring(0, 3);
+
          if (Arrays.asList(MobilePrefixes.DIALOG_PREFIXES).contains(digits)) {
              return ServiceProviders.DIALOG;
          }
