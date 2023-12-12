@@ -12,7 +12,7 @@ public class SMSService {
            String serviceProvider = ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getMobileNumber()).name();
 
            System.out.println(serviceProvider);
-           System.out.println("send to : "+messageDTO.getMobileNumber()+"  message : "+ messageDTO.getMessage());
+           System.out.println(serviceProvider+"  message : "+ messageDTO.getMessage());
            return new MessageDTO.Response(
                    "message send success",
                    messageDTO.getMobileNumber());
