@@ -9,8 +9,12 @@ public class SMSService {
 
        public MessageDTO.Response getServiceProvider(MessageDTO messageDTO) throws Exception {
 
-           return new MessageDTO.Response(messageDTO.getMessage(),
-                   ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getMobileNumber()).name(),
+           String serviceProvider = ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getMobileNumber()).name();
+
+           System.out.println(serviceProvider);
+           System.out.println("send to : "+messageDTO.getMobileNumber()+"  message : "+ messageDTO.getMessage());
+           return new MessageDTO.Response(
+                   "message send success",
                    messageDTO.getMobileNumber());
        }
 }
