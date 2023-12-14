@@ -10,7 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageDTO {
-       String mobileNumber;
+       String sender;
+       String resiver;
        String message;
        @Setter
        @AllArgsConstructor

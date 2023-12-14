@@ -8,13 +8,18 @@ import org.springframework.stereotype.Service;
 public class SMSService {
 
        public MessageDTO.Response getServiceProvider(MessageDTO messageDTO) throws Exception {
+           System.out.println("*********** message gateway ***********");
+           String senderServiceProvider = ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getSender()).name();
+           String resiverServiceProvider = ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getResiver()).name();
+           if(!senderServiceProvider.equals(resiverServiceProvider)){
+               System.out.println("Pass the message from "+ senderServiceProvider+ " To " + resiverServiceProvider);
+           }
+           String redColor = "\u001B[31m";
+           String resetColor = "\u001B[0m";
+           System.out.println("-----------------------------------------------------------------\n|"+redColor+resiverServiceProvider+"  message : "+ messageDTO.getMessage()+resetColor+"|\n-----------------------------------------------------------------");
 
-           String serviceProvider = ServiceProvider.getServiceProviderForMobilePrefix(messageDTO.getMobileNumber()).name();
-
-           System.out.println(serviceProvider);
-           System.out.println(serviceProvider+"  message : "+ messageDTO.getMessage());
            return new MessageDTO.Response(
-                   "message send success",
-                   messageDTO.getMobileNumber());
+                   "message send success to",
+                   messageDTO.getResiver());
        }
 }

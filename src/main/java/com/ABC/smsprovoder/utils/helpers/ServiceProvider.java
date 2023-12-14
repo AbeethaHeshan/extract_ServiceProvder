@@ -16,7 +16,7 @@ public class ServiceProvider {
 
              String digits = mobileNumber.replaceAll("\\s", "").substring(0, 3);
 
-             if(digits.length() == 10){
+             if(mobileNumber.replaceAll("\\s", "").length() == 10){
                  if (Arrays.asList(MobilePrefixes.DIALOG_PREFIXES).contains(digits)) {
                      return ServiceProviders.DIALOG;
                  }
