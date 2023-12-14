@@ -21,5 +21,6 @@ public class MessageDTO {
        class Response {
               private  String status;
               private  String mobileNumber;
+              private  double charges;
        }
 }
