@@ -1,9 +1,9 @@
-package com.ABC.smsprovoder.utils.helpers.xx.serviceproviders.impl;
+package com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl;
 
 import com.ABC.smsprovoder.utils.helpers.enums.ServiceProviders;
-import com.ABC.smsprovoder.utils.helpers.xx.ProviderDetails;
-import com.ABC.smsprovoder.utils.helpers.xx.serviceproviders.Chargins;
-import com.ABC.smsprovoder.utils.helpers.xx.serviceproviders.CommonProvider;
+import com.ABC.smsprovoder.utils.helpers.charges.ProviderDetails;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.Chargins;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.CommonProvider;
 
 /**
  * @author : Abeetha Heshan Gunathilaka <abeethaheshan400@gmail.com>

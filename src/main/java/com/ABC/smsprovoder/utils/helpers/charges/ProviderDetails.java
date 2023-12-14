@@ -1,4 +1,4 @@
-package com.ABC.smsprovoder.utils.helpers.xx;
+package com.ABC.smsprovoder.utils.helpers.charges;
 
 import com.ABC.smsprovoder.utils.helpers.enums.ServiceProviders;
 import lombok.AllArgsConstructor;

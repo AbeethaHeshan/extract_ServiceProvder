@@ -1,6 +1,6 @@
-package com.ABC.smsprovoder.utils.helpers.xx;
+package com.ABC.smsprovoder.utils.helpers.charges;
 
-import com.ABC.smsprovoder.utils.helpers.xx.serviceproviders.CommonProvider;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.CommonProvider;
 
 /**
  * @author : Abeetha Heshan Gunathilaka <abeethaheshan400@gmail.com>

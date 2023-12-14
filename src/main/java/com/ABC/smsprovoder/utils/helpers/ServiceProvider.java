@@ -1,7 +1,12 @@
 package com.ABC.smsprovoder.utils.helpers;
 
 
+import com.ABC.smsprovoder.utils.helpers.charges.ProviderDetails;
 import com.ABC.smsprovoder.utils.helpers.enums.ServiceProviders;
+import com.ABC.smsprovoder.utils.helpers.charges.ProviderContext;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl.DialogProviderImpl;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl.HutchProviderImpl;
+import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl.MobitelProviderImpl;
 
 import java.util.Arrays;
 
@@ -15,7 +20,6 @@ public class ServiceProvider {
          }else {
 
              String digits = mobileNumber.replaceAll("\\s", "").substring(0, 3);
-
              if(mobileNumber.replaceAll("\\s", "").length() == 10){
                  if (Arrays.asList(MobilePrefixes.DIALOG_PREFIXES).contains(digits)) {
                      return ServiceProviders.DIALOG;
@@ -36,4 +40,26 @@ public class ServiceProvider {
 
 
 
+     public ProviderDetails  charges(Enum<ServiceProviders> sender , Enum<ServiceProviders>  resiver) throws Exception {
+         ProviderContext providerContext = new ProviderContext();
+
+         if (sender.equals(ServiceProviders.MOBITEL)) {
+
+             providerContext.setProvider(new MobitelProviderImpl());
+             return providerContext.charge(sender.name(), resiver.name());
+
+         } else if (sender.equals(ServiceProviders.DIALOG)) {
+
+             providerContext.setProvider(new DialogProviderImpl());
+             return providerContext.charge(sender.name(), resiver.name());
+
+         } else if (sender.equals(ServiceProviders.HUTCH)) {
+
+             providerContext.setProvider(new HutchProviderImpl());
+             return providerContext.charge(sender.name(), resiver.name());
+
+         } else {
+             throw new Exception("provider not found");
+         }
+     }
 }
