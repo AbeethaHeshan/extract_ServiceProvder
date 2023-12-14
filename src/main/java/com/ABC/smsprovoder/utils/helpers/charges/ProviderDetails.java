@@ -18,5 +18,4 @@ import lombok.Setter;
 public class ProviderDetails {
      double charge;
      Enum<ServiceProviders> provider;
-
 }

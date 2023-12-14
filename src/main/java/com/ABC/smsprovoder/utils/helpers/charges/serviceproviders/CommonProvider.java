@@ -8,5 +8,5 @@ import com.ABC.smsprovoder.utils.helpers.charges.ProviderDetails;
  **/
 public interface CommonProvider {
 
-     ProviderDetails charge(String senderServiceProvider, String ReseverServiceProvider);
+     ProviderDetails charge(String senderServiceProvider, String ReseverServiceProvider) ;
 }

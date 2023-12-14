@@ -2,7 +2,7 @@ package com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl;
 
 import com.ABC.smsprovoder.utils.helpers.enums.ServiceProviders;
 import com.ABC.smsprovoder.utils.helpers.charges.ProviderDetails;
-import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.Chargins;
+import com.ABC.smsprovoder.utils.helpers.charges.Chargins;
 import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.CommonProvider;
 
 /**
@@ -19,13 +19,13 @@ public class DialogProviderImpl implements CommonProvider {
     }
 
     @Override
-    public ProviderDetails charge(String senderServiceProvider, String reseverServiceProvider) {
+    public ProviderDetails charge(String senderServiceProvider, String reseverServiceProvider)  {
 
         if(senderServiceProvider.equals(this.serviceProvidersEnum.name())  && reseverServiceProvider.equals(this.serviceProvidersEnum.name()) ){
             providerDetails.setCharge(this.charge);
         } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) && reseverServiceProvider.equals(ServiceProviders.MOBITEL.name()) ) {
             providerDetails.setCharge(Chargins.DIALOG_TO_MOBITEL);
-        } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) &&  senderServiceProvider.equals(ServiceProviders.HUTCH.name())) {
+        } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) &&  reseverServiceProvider.equals(ServiceProviders.HUTCH.name())) {
             providerDetails.setCharge(Chargins.DIALOG_TO_HUTCH);
         }
         return providerDetails;

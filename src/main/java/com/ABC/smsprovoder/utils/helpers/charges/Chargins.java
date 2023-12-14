@@ -1,4 +1,4 @@
-package com.ABC.smsprovoder.utils.helpers.charges.serviceproviders;
+package com.ABC.smsprovoder.utils.helpers.charges;
 
 /**
  * @author : Abeetha Heshan Gunathilaka <abeethaheshan400@gmail.com>

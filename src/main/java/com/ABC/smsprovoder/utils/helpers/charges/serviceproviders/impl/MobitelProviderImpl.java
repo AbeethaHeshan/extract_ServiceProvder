@@ -2,7 +2,7 @@ package com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.impl;
 
 import com.ABC.smsprovoder.utils.helpers.enums.ServiceProviders;
 import com.ABC.smsprovoder.utils.helpers.charges.ProviderDetails;
-import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.Chargins;
+import com.ABC.smsprovoder.utils.helpers.charges.Chargins;
 import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.CommonProvider;
 
 /**
@@ -18,12 +18,12 @@ public class MobitelProviderImpl extends ProviderDetails implements CommonProvid
         this.providerDetails =  new ProviderDetails();
     }
     @Override
-    public ProviderDetails charge(String senderServiceProvider, String reseverServiceProvider) {
+    public ProviderDetails charge(String senderServiceProvider, String reseverServiceProvider)  {
         if(senderServiceProvider.equals(this.serviceProvidersEnum.name())  && reseverServiceProvider.equals(this.serviceProvidersEnum.name()) ){
              providerDetails.setCharge(this.charge);
         } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) && reseverServiceProvider.equals(ServiceProviders.DIALOG.name()) ) {
              providerDetails.setCharge(Chargins.MOBITEL_TO_DIALOG);
-        } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) &&  senderServiceProvider.equals(ServiceProviders.HUTCH.name())) {
+        } else if (senderServiceProvider.equals(this.serviceProvidersEnum.name()) &&  reseverServiceProvider.equals(ServiceProviders.HUTCH.name())) {
              providerDetails.setCharge(Chargins.MOBITEL_TO_HUTCH);
         }
         return providerDetails;

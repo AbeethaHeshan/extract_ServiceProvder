@@ -8,13 +8,10 @@ import com.ABC.smsprovoder.utils.helpers.charges.serviceproviders.CommonProvider
  **/
 public class ProviderContext {
    private CommonProvider commonProvider;
-
    public void setProvider(CommonProvider providerStrategy){
         this.commonProvider = providerStrategy;
    }
-
-
-   public ProviderDetails charge(String sender,String resiver){
+   public ProviderDetails charge(String sender,String resiver) {
        return commonProvider.charge(sender,resiver);
    }
 
